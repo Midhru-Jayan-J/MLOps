@@ -1,3 +1,12 @@
+#Jinja2 Template
+'''
+{{ }} - Used for printing outputs
+{%...%} - Used for condition
+{#...#} - This is for comments
+'''
+
+
+
 from flask import Flask,render_template,request
 
 app=Flask(__name__)
@@ -24,9 +33,26 @@ def submit():
         return f"Hello {name}!"
     return render_template("form.html")
 
-@app.route('/success/<score>')
+#Variable Rule
+@app.route('/success/<int:score>')
 def success(score):
-    return "The marks u got is " + score
+    res=""
+    if score>=50:
+        res="PASS"
+    else:
+        res="Fail"
+    return render_template("result.html",results=res)
+
+@app.route('/successres/<int:score>')
+def successres(score):
+    res=""
+    if score>=50:
+        res="Passed"
+    else:
+        res="Failed"
+        
+    exp={'score':score,'res':res}
+    return render_template("result1.html",results=exp)
     
 
 
