@@ -1,5 +1,11 @@
-<h1>
-
-    Based on the marks you have {{results}}
-
-</h1>
+<html>
+  <head></head>
+  <body>
+    <h1>Based on the marks You have {{ results }} </h1>
+    {% if results >= 50 %}
+    <h1>You have passed with marks {{ results }}</h1>
+    {% else %}
+    <h2>You have failed with marks {{ results }}</h2>
+    {% endif %}
+  </body>
+</html>
