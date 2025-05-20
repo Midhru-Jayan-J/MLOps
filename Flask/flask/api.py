@@ -1,11 +1,11 @@
-### Put and Delete-HTTP Verbs
-### Working With API's--Json
+# Put and Delete-HTTP Verbs
+# Working With API's--Json
 
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-##Initial Data in  to do list
+#Initial Data in  to do list
 items = [
     {"id": 1, "name": "Item 1", "description": "This is item 1"},
     {"id": 2, "name": "Item 2", "description": "This is item 2"}
@@ -15,13 +15,13 @@ items = [
 def home():
     return "Welcome To The Sample To DO List App"
 
-## Get: Retrieve all the items
+# Get: Retrieve all the items
 
 @app.route('/items',methods=['GET'])
 def get_items():
     return jsonify(items)
 
-## get: Retireve a specific item by Id
+# get: Retireve a specific item by Id
 @app.route('/items/<int:item_id>',methods=['GET'])
 def get_item(item_id):
     item=next((item for item in items if item["id"]==item_id),None)
